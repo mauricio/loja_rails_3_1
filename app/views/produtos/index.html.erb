@@ -1,0 +1,22 @@
+<h1> Lista de produtos </h1>
+
+<% unless @produtos.blank? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @produtos.each do |produto| %>
+          <tr>
+            <td> <%= link_to( produto.nome, produto_url(produto) ) %> </td>
+            <td> <%= number_to_currency produto.preco %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <p> Não há produtos na listagem no momento. </p>
+<% end %>
