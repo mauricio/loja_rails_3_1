@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LojaSlides</title>
-  <%= stylesheet_link_tag    "application" %>
+  <title>Loja</title>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="topbar-wrapper" style="z-index: 5;">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container">
+        <h3> <%= link_to 'Minha Loja', root_url %> </h3>
+        <% unless pedido_atual.itens.blank? %>
+            <ul class="nav secondary-nav">
+              <li>
+                <%= link_to 'Veja o seu carrinho', itens_path %>
+              </li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <% [:success, :warning, :error, :info].each do |key| %>
+      <% unless flash[key].blank? %>
+          <div class="alert-message <%= key %>">
+            <a class="close" href="javascript:void(0)">&times;</a>
+            <p><strong><%= flash[key] %></strong></p>
+          </div>
+      <% end %>
+  <% end %>
+
+  <%= yield %>
+</div>
 
 </body>
 </html>

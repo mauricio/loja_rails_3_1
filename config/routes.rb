@@ -53,6 +53,7 @@ LojaSlides::Application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
   resources :produtos
+  resources :itens
   root :to => 'produtos#index'
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

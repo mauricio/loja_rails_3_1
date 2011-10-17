@@ -1,0 +1,29 @@
+<h1>Meu carrinho</h1>
+
+<table class="zebra-striped">
+  <thead>
+  <tr>
+    <th>Produto</th>
+    <th>Quantidade</th>
+    <th>Preço Unitário</th>
+    <th>Preço Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% pedido_atual.itens.each do |item| %>
+      <tr>
+        <td> <%= item.nome %> </td>
+        <td> <%= item.quantidade %> </td>
+        <td> <%= number_to_currency item.preco_unitario %></td>
+        <td> <%= number_to_currency item.preco_total %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"></td>
+    <td> Preço Total</td>
+    <td> <%= number_to_currency pedido_atual.preco_total %>  </td>
+  </tr>
+  </tfoot>
+</table>
