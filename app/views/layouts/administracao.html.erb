@@ -12,14 +12,10 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container">
-        <h3> <%= link_to 'Minha Loja', root_url %> </h3>
-        <% unless pedido_atual.itens.blank? %>
-            <ul class="nav secondary-nav">
-              <li>
-                <%= link_to 'Veja o seu carrinho', itens_path %>
-              </li>
-            </ul>
-        <% end %>
+        <h3> <%= link_to 'Minha Loja - Adminstração', root_url %> </h3>
+        <ul class="nav">
+          <li> <%= link_to 'Produtos', admin_produtos_url %> </li>
+        </ul>
       </div>
     </div>
   </div>

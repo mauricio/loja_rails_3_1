@@ -1,0 +1,9 @@
+<% [:success, :warning, :error, :info].each do |key| %>
+    <% unless flash[key].blank? %>
+        <div class="alert-message <%= key %>">
+          <a class="close" href="javascript:void(0)">&times;</a>
+
+          <p><strong><%= flash[key] %></strong></p>
+        </div>
+    <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+
+<p>
+  <%= link_to 'Novo Produto', new_admin_produto_url %>
+</p>
+
+<% unless @produtos.blank? %>
+
+  <%= will_paginate @produtos %>
+
+  <table>
+    <%= cabecalho_de_tabela 'Nome', 'Preço', 'Ações' %>
+    <tbody>
+      <%= render @produtos %> </tbody>
+  </table>
+
+  <%= will_paginate @produtos %>
+
+<% else %>
+  <p> Não há produtos cadastrados no sistema. </p>
+<% end %>
